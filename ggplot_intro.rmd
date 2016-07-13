@@ -28,11 +28,35 @@ we'll load libraries and learn ggplot2.
 here we write in markdown.
 #hashtags mean headers.
 summary(cars)
-```{r}
+
 #here we write R.
 library(dplyr)
 library(gapminder)
 library(ggplot2)# install.packages('ggplot2')
+
+##subset our data
+
+g<-gapminder %>%
+filter(year==2007)%>%
+mutate(pop_m=pop/1e6)
+
+#my first plot
+
+
+#nice piped!
+```{r}
+
+```
+
+##make a box plot
+
+this is my boxplot of continent and life expectency.
+using 'g', which is a subset of 2007
+```{r}
+b = ggplot(g, aes(x=continent, y=lifeExp)) +
+  geom_boxplot()+
+  aes(fill=continent)+theme(legend.position='none')
+b
 
 ```
 
